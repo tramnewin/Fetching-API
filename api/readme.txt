@@ -15,7 +15,8 @@ How it works: It retrieves the data from the API with
 a list of 10 users' information. When the user enters 
 the user's corresponded number, it pulls the data from the
 source and displays it onto the page.
-
+Note: to make this webpage runs smoothly, don't forget
+to store the files in the same directory
 *******************************************************
 *  Source files
 *******************************************************
