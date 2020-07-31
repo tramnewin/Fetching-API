@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="format.css">
+    <title>Fetch data</title>
+</head>
+<body>
+    <h1>API</h1>
+    <p>This website shows you how to fetch an api from a url and display it onto the page</p>
+    <p>The url that is used to retrieve data is a free api from jsonplaceholder</p>
+    <p>Which user do you wish to be displayed?</p>
+    <p> Choose a number from 1 to 10</p>
+    <input type="number" id="userNum">
+    <button id ="myButton">Submit</button>
+    <!--div block shows the result after retrieving the data-->
+    <div id="result">
+        <p id ="id"></p>
+        <p id ="name"></p>
+        <p id = "username"></p>
+        <p id = "email"></p>
+    </div>
+    <button onclick="myFunction()">Contact information</button>
+    <div id="myDIV" style="visibility: hidden;">
+    <p>Name: Tram Nguyen</p>
+    <p>Date of Birth: August 26, 1999</p>
+    <p>Phone Number:(+1) 202-817-1721 </p>
+    <p>Email: trmnguyen2608@gmail.com</p>
+    <p>Education:University of Colorado - Denver</p>
+    </div>
+    <script>
+        document.getElementById("myButton").addEventListener("click", getdata);         //when the button is clicked, it triggers getdata function
+       async function getdata(){
+        var theNum  = document.getElementById("userNum").value;                         //theNum has the input from the user
+        const url = 'http://jsonplaceholder.typicode.com./users/' + theNum;             //get the url combining with the input 
+            var theId = document.getElementById("id");                                  //each variable corresponds with an id tag to display on the web
+            var theName = document.getElementById("name");
+            var theUsername = document.getElementById("username");
+            var theEmail = document.getElementById("email");
+        
+            const response = await fetch(url);                                          //fetch the data from the url
+            const data = await response.json();                                         //places the data from the api into data
+            //console.log(data); this is to show the info on the CONSOLE not the final result of the web page
+            theId.innerHTML = "Id: " + data.id;                                         //display the information in div tag
+            theName.innerHTML = "Name: " + data.name;
+            theUsername.innerHTML = "Username: " + data.username;
+            theEmail.innerHTML =  "Email: " + data.email;
+        }
+        function myFunction() {
+        var x = document.getElementById('myDIV');
+        if (x.style.visibility === 'hidden') {
+            x.style.visibility = 'visible';
+        } else {
+            x.style.visibility = 'hidden';
+        }
+        }
+     
+    </script>
+</body>
+</html>
