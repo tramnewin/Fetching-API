@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Picture Generator </title>
+<style>
+body{
+    background-color:bisque;
+    }
+p{
+	color: blue;
+	font-family: calibri
+}
+</style>
+</head>
+<body>
+<h1 font-family= "Times New Roman";>First website project testing</h1>
+<p>This webpage generates an image in size 200x300</p>
+<p>The source of the picture is from <a href="https://picsum.photos/" target="_blank">Lorem Picsum photos</a></p>
+<button id="mybutton">Randomize!</button>
+<p></p>
+<img id="image" src="">
+<p></p>
+<button onclick="myFunction()">Contact information</button>
+
+<div id="myDIV" style="visibility: hidden;">
+<p>Name: Tram Nguyen</p>
+<p>Date of Birth: August 26, 1999</p>
+<p>Phone Number:(+1) 202-817-1721 </p>
+<p>Email: trmnguyen2608@gmail.com</p>
+<p>Education:University of Colorado - Denver</p>
+</div>
+<script>
+
+document.getElementById("mybutton").addEventListener("click", randomImage);
+function randomImage(){
+    var url = 'http://picsum.photos/200/300?random='+Math.floor((Math.random() * 100) + 1);     //generate random number from 1 to 100
+    var theImage = document.getElementById("image");
+    theImage.src = url;
+
+}
+
+function myFunction() {
+  var x = document.getElementById('myDIV');
+  if (x.style.visibility === 'hidden') {
+    x.style.visibility = 'visible';
+  } else {
+    x.style.visibility = 'hidden';
+  }
+}
+
+
+</script>
+</body>
+</html>
